@@ -22,11 +22,11 @@ void main() {
   print(something);
 
   // var and dynamic to avoid
-  var v = 18;
+  // var v = 18;
   // v = 20; allowed
   // v = "name" not allowed
 
-  dynamic c = 18;
+  // dynamic c = 18;
   // c = "text";  allowed;
 
   //variable name should be in camelCase;
@@ -65,4 +65,15 @@ thank you.''';
   const pi1 = 22 / 7;
   print(pi1);
   // you cannot reassign the value of const
+  final value = 56;
+  print(value);
+
+  // type safety
+  // Optional variable -> variable can have two value
+  // String/int/bool and null
+  int? some = null;
+  String? h = null;
+
+  print(some);
+  print(h);
 }
