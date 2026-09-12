@@ -95,7 +95,18 @@ void main() {
       print(num1 - num2);
     case ('/'):
       print(num1 / num2);
+    case ("sorry"):
+      break;
     default:
       print("operator error");
+  }
+
+  // switch with when;
+  switch (age) {
+    case 18 when age >= 18:
+      print("Adult");
+
+    default:
+      print("Not adult");
   }
 }
