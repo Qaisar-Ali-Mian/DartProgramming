@@ -5,7 +5,8 @@
 // we can defined diffrent constructor defined and have diffrent name
 void main() {
   // simple constructer will called;
-  var a1 = Angle();
+  var a1 = Angle(77, 99);
+
   var a2 = Angle.valueSet(3, 4);
   print(a2.x);
   print(a2.y);
@@ -19,12 +20,10 @@ class Angle {
   double x = 0;
   double y = 0;
 
-  Angle() {
-    print(" simple cstr called");
-  }
+  Angle(this.x, this.y);
 
   Angle.valueSet(double x, double y) : this.x = x, this.y = y {
-    print("this is ");
+    print("valueSet ctr called");
   }
 
   Angle.values(double x, double y) {

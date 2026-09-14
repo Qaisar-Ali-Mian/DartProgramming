@@ -16,7 +16,7 @@ void main() {
   print(a.y);
   print(b.y);
 
-  print("COunter");
+  print("Counter");
   print(Vehical.counter);
 }
 
