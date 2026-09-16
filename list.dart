@@ -25,56 +25,64 @@ void main() {
   // Anything<String, int> a1 = Anything("qaisar", 21);
   // a1.displayInfo();
 
-  List<Anything<String, int>> listOfAnythings = [
-    Anything("Qaisar", 21),
-    Anything("Xyz", 22),
-    Anything("fahad", 20),
-  ];
-  print(listOfAnythings[0]);
-  print(listOfAnythings[1]);
-  print(listOfAnythings[2]);
+  //   List<Anything<String, int>> listOfAnythings = [
+  //     Anything("Qaisar", 21),
+  //     Anything("Xyz", 22),
+  //     Anything("fahad", 20),
+  //   ];
+  //   print(listOfAnythings[0]);
+  //   print(listOfAnythings[1]);
+  //   print(listOfAnythings[2]);
 
-  listOfAnythings.add(Anything('maaz', 20));
-  listOfAnythings.add(Anything("rashid", 24));
-  print(listOfAnythings);
+  //   listOfAnythings.add(Anything('maaz', 20));
+  //   listOfAnythings.add(Anything("rashid", 24));
+  //   print(listOfAnythings);
 
-  listOfAnythings.insert(0, Anything("faisal", 25));
-  print(listOfAnythings);
+  //   listOfAnythings.insert(0, Anything("faisal", 25));
+  //   print(listOfAnythings);
 
-  // listOfAnythings.remove(value);
+  //   // listOfAnythings.remove(value);
 
-  // -------------------------
-  List<Anything<String, int>> newList = [];
-  for (Anything<String, int> obj in listOfAnythings) {
-    if (obj.age > 21) {
-      newList.add(obj);
-    }
-  }
+  //   // -------------------------
+  //   List<Anything<String, int>> newList = [];
+  //   for (Anything<String, int> obj in listOfAnythings) {
+  //     if (obj.age > 21) {
+  //       newList.add(obj);
+  //     }
+  //   }
 
-  print("newlist");
-  print(newList);
+  //   print("newlist");
+  //   print(newList);
 
-  // another method using where
+  //   // another method using where
 
-  final listWhere = (listOfAnythings.where((obj) => obj.age > 21)).toList();
-  print("ListWhere");
-  print(listWhere);
-  print(listWhere.runtimeType);
+  //   final listWhere = (listOfAnythings.where((obj) => obj.age > 21)).toList();
+  //   print("ListWhere");
+  //   print(listWhere);
+  //   print(listWhere.runtimeType);
+
+  List<int> l1 = [1, 2, 3, 4, 5];
+  print(l1.reversed.toList());
+  print(l1.first);
+  print(l1.isEmpty);
+  print(l1.isNotEmpty);
+  l1.addAll([1, 2, 3, 4, 5]);
+  print(l1);
 }
 
-// genric class
+// // genric class
 
-class Anything<T, T1> {
-  T name;
-  T1 age;
+// class Anything<T, T1> {
+//   T name;
+//   T1 age;
 
-  Anything(this.name, this.age);
+//   Anything(this.name, this.age);
 
-  void displayInfo() {
-    print("name $name");
-    print("age $age");
-  }
+//   void displayInfo() {
+//     print("name $name");
+//     print("age $age");
+//   }
 
-  @override
-  String toString() => "Name: $name";
-}
+//   @override
+//   String toString() => "Name: $name";
+// }
