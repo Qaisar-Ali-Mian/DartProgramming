@@ -1,7 +1,6 @@
 void main() {
   StudentManagementSystem system = StudentManagementSystem();
 
-  // Creating students using normal constructor
   UndergraduateStudent student1 = UndergraduateStudent(
     1,
     "Qaisar",
@@ -9,57 +8,42 @@ void main() {
     "Computer Science",
   );
 
-  // Named constructor
   UndergraduateStudent student2 = UndergraduateStudent.fromBasicInfo(
     2,
     "Ali",
     "Computer Science",
   );
 
-  // Constructor redirection
   UndergraduateStudent student3 = UndergraduateStudent.withDefaultMarks(
     3,
     "Ahmad",
     "Software Engineering",
   );
 
-  // Setting marks using setter
   student2.marks = 72;
 
-  // Add students
   system.addStudent(student1);
   system.addStudent(student2);
   system.addStudent(student3);
 
-  // Display students
   system.displayStudents();
 
-  // Search student
   system.searchStudent(2);
 
-  // Show student details
   student1.showDetails();
 
-  // Teacher
   Teacher teacher = Teacher("Engr. Munazza", "Computer Science");
   teacher.showTeacherInfo();
 
-  // Attendance
   student1.markAttendance();
 
-  // Logger mixin
   student1.log("Student information accessed");
 
-  // Remove student
   system.removeStudent(3);
 
   print("\nAfter removing student:");
   system.displayStudents();
 }
-
-// =====================================================
-// ABSTRACT CLASS
-// =====================================================
 
 abstract class Person {
   String name;
@@ -69,27 +53,15 @@ abstract class Person {
   void showDetails();
 }
 
-// =====================================================
-// INTERFACE
-// =====================================================
-
 abstract class Printable {
   void printInfo();
 }
-
-// =====================================================
-// MIXIN
-// =====================================================
 
 mixin Logger {
   void log(String message) {
     print("[LOG] $message");
   }
 }
-
-// =====================================================
-// ATTENDANCE MIXIN
-// =====================================================
 
 mixin AttendanceMixin {
   int attendance = 0;
@@ -100,35 +72,24 @@ mixin AttendanceMixin {
   }
 }
 
-// =====================================================
-// STUDENT CLASS
-// =====================================================
-
 class Student extends Person with Logger, AttendanceMixin implements Printable {
   int id;
-
-  // Encapsulation
   double _marks;
-
   String course;
 
   Student(this.id, String name, this._marks, this.course) : super(name);
 
-  // Named constructor
   Student.fromBasicInfo(this.id, String name, this.course)
     : _marks = 0,
       super(name);
 
-  // Constructor redirection
   Student.withDefaultMarks(int id, String name, String course)
     : this(id, name, 50, course);
 
-  // Getter
   double get marks {
     return _marks;
   }
 
-  // Setter
   set marks(double value) {
     if (value >= 0 && value <= 100) {
       _marks = value;
@@ -137,7 +98,6 @@ class Student extends Person with Logger, AttendanceMixin implements Printable {
     }
   }
 
-  // Function
   String calculateGrade() {
     if (_marks >= 90) {
       return "A+";
@@ -154,12 +114,10 @@ class Student extends Person with Logger, AttendanceMixin implements Printable {
     }
   }
 
-  // Function
   bool isPassed() {
     return _marks >= 50;
   }
 
-  // Implementing interface method
   @override
   void printInfo() {
     print(
@@ -168,7 +126,6 @@ class Student extends Person with Logger, AttendanceMixin implements Printable {
     );
   }
 
-  // Overriding abstract method
   @override
   void showDetails() {
     print("\n----- Student Details -----");
@@ -181,19 +138,13 @@ class Student extends Person with Logger, AttendanceMixin implements Printable {
   }
 }
 
-// =====================================================
-// INHERITANCE
-// =====================================================
-
 class UndergraduateStudent extends Student {
   UndergraduateStudent(int id, String name, double marks, String course)
     : super(id, name, marks, course);
 
-  // Named constructor
   UndergraduateStudent.fromBasicInfo(int id, String name, String course)
     : super.fromBasicInfo(id, name, course);
 
-  // Constructor redirection
   UndergraduateStudent.withDefaultMarks(int id, String name, String course)
     : this(id, name, 50, course);
 
@@ -207,10 +158,6 @@ class UndergraduateStudent extends Student {
     print("Grade: ${calculateGrade()}");
   }
 }
-
-// =====================================================
-// TEACHER CLASS
-// =====================================================
 
 class Teacher extends Person {
   String department;
@@ -229,20 +176,14 @@ class Teacher extends Person {
   }
 }
 
-// =====================================================
-// STUDENT MANAGEMENT SYSTEM
-// =====================================================
-
 class StudentManagementSystem {
   List<Student> students = [];
 
-  // Add student
   void addStudent(Student student) {
     students.add(student);
     print("${student.name} added successfully.");
   }
 
-  // Display all students
   void displayStudents() {
     print("\n===== ALL STUDENTS =====");
 
@@ -256,7 +197,6 @@ class StudentManagementSystem {
     }
   }
 
-  // Search student
   void searchStudent(int id) {
     for (Student student in students) {
       if (student.id == id) {
@@ -269,14 +209,11 @@ class StudentManagementSystem {
     print("Student with ID $id not found.");
   }
 
-  // Remove student
   void removeStudent(int id) {
     for (int i = 0; i < students.length; i++) {
       if (students[i].id == id) {
         print("${students[i].name} removed.");
-
         students.removeAt(i);
-
         return;
       }
     }
@@ -284,7 +221,6 @@ class StudentManagementSystem {
     print("Student not found.");
   }
 
-  // Calculate average marks
   void calculateAverage() {
     if (students.isEmpty) {
       print("No students available.");
