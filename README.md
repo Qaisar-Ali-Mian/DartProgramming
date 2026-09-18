@@ -18,6 +18,15 @@ I am learning Dart step by step and uploading my practice programs and examples 
 - Inheritance
 - Abstract Classes and Methods
 - Encapsulation
+- Lists
+- Sets
+- Maps
+- Null Safety
+- Exception Handling
+- Mixins
+- Extensions
+- Futures
+- Async/Await
 - More topics will be added as I continue learning Dart.
 
 ## 📂 Repository Structure
